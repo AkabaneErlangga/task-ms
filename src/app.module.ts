@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TasksModule } from './tasks/tasks.module';
+import { AllExceptionsFilter } from './common/interceptors/all-exception.filter';
 
 @Module({
   imports: [
@@ -18,6 +19,6 @@ import { TasksModule } from './tasks/tasks.module';
     TasksModule,
   ],
   controllers: [AppController],
-  providers: [AppService], 
+  providers: [AppService, AllExceptionsFilter],
 })
 export class AppModule {}
