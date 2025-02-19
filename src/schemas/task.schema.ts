@@ -11,11 +11,18 @@ export class Task {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ required: true, enum: ['pending', 'in-progress', 'completed'], default: 'pending' })
+  @Prop({
+    required: true,
+    enum: ['pending', 'in-progress', 'completed'],
+    default: 'pending',
+  })
   status: string;
 
   @Prop({ required: true })
   userId: string;
+
+  @Prop({ default: null })
+  deletedAt: Date | null;
 }
 
 export const TaskSchema = SchemaFactory.createForClass(Task);

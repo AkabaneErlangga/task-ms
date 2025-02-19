@@ -22,28 +22,18 @@ export class TasksController {
     return this.TasksService.updateTask(message.taskId, message.taskData);
   }
 
-  // @MessagePattern({ cmd: 'create_task' })
-  // async createTask(message: CreateTaskDto) {
-  //   return this.TasksService.createTask(message);
-  // }
+  @MessagePattern({ cmd: 'update_task_status' })
+  async updateTaskStatus(message: any) {
+    return this.TasksService.updateTaskStatus(message.taskId, message.status);
+  }
 
-  // @MessagePattern({ cmd: 'get_all_tasks' })
-  // async getTasks() {
-  //   return this.TasksService.getTasks();
-  // }
+  @MessagePattern({ cmd: 'delete_task' })
+  async deleteTask(message: any) {
+    return this.TasksService.deleteTask(message.taskId);
+  }
 
-  // @MessagePattern({ cmd: 'update_task' })
-  // async updateTask(message: any) {
-  //   return this.TasksService.updateTask(taskId, taskData);
-  // }
-
-  // @MessagePattern({ cmd: 'update_task_status' })
-  // async updateTaskStatus(message: any) {
-  //   return this.TasksService.updateTaskStatus(taskId, status);
-  // }
-
-  // @MessagePattern({ cmd: 'delete_task' })
-  // async deleteTask(message: any) {
-  //   return this.TasksService.deleteTask(taskId);
-  // }
+  @MessagePattern({ cmd: 'restore_task' })
+  async restoreTask(message: any) {
+    return this.TasksService.restoreTask(message.taskId);
+  }
 }
