@@ -18,8 +18,14 @@ export class Task {
   })
   status: string;
 
+  @Prop()
+  assignedTo: string | null;
+
   @Prop({ required: true })
   userId: string;
+
+  @Prop({ default: null })
+  dueDate: Date | null;
 
   @Prop({ default: null })
   deletedAt: Date | null;

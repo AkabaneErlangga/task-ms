@@ -31,7 +31,6 @@ export class TasksService {
   }
 
   async deleteTask(taskId: string) {
-    console.log(taskId);
     return this.taskModel
       .findByIdAndUpdate(taskId, { deletedAt: new Date() }, { new: true })
       .exec();
